@@ -1,6 +1,9 @@
+/**
+ * External dependencies
+ */
 import styled from 'styled-components';
 
-const Button = styled.button.attrs({type:'submit'})`
+const Button = styled.button.attrs( { type: 'submit' } )`
   border: 0;
   color: white;
   height: 2em;
@@ -9,11 +12,11 @@ const Button = styled.button.attrs({type:'submit'})`
   text-align: center;
   background-color: purple;
 
-  ${({isOutline}) => isOutline && `
+  ${ ( { isOutline } ) => isOutline && `
     background-color: transparent;
     color: purple;
     border: 1px solid;
-  `}
+  ` }
 `;
 
 export default Button;

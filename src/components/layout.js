@@ -1,6 +1,12 @@
-import React, {useState} from 'react';
-import styled, {createGlobalStyle} from 'styled-components';
+/**
+ * External dependencies
+ */
+import React, { useState } from 'react';
+import styled, { createGlobalStyle } from 'styled-components';
 
+/**
+ * Internal dependencies
+ */
 import MediaList from './mediaList';
 import Upload from './upload';
 import Button from './button';
@@ -24,17 +30,19 @@ const AppStyle = createGlobalStyle`
 `;
 
 function Layout() {
-  const [hasUpload, setHasUpload] = useState(false);
-  return (
-    <Wrapper>
-      <AppStyle />
-      {hasUpload ?
-        <Upload handleComplete={() => setHasUpload(false)} /> :
-        <Button onClick={() => setHasUpload(true)}>Upload new image</Button>
-      }
-      <MediaList />
-    </Wrapper>
-  );
+	const [ hasUpload, setHasUpload ] = useState( false );
+	return (
+		<Wrapper>
+			<AppStyle />
+			{ hasUpload ?
+				<Upload handleComplete={ () => setHasUpload( false ) } /> :
+				<Button onClick={ () => setHasUpload( true ) }>
+					{ 'Upload new image' }
+				</Button>
+			}
+			<MediaList />
+		</Wrapper>
+	);
 }
 
 export default Layout;

@@ -1,9 +1,15 @@
-import {useContext} from 'react';
+/**
+ * External dependencies
+ */
+import { useContext } from 'react';
 
+/**
+ * Internal dependencies
+ */
 import MediaContext from './context';
 
 function useMedia() {
-  return useContext(MediaContext);
+	return useContext( MediaContext );
 }
 
 export default useMedia;

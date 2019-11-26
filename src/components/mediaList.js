@@ -1,7 +1,13 @@
+/**
+ * External dependencies
+ */
 import React from 'react';
 import styled from 'styled-components';
 
-import {useMedia} from '../media';
+/**
+ * Internal dependencies
+ */
+import { useMedia } from '../media';
 import MediaItem from './mediaItem';
 
 const List = styled.ul`
@@ -15,12 +21,12 @@ const List = styled.ul`
 `;
 
 function MediaList() {
-  const {state:{media}} = useMedia();
-  return (
-    <List>
-      {media.map(({id,title,data}) => <MediaItem image={data} title={title} key={id} />)}
-    </List>
-  );
+	const { state: { media } } = useMedia();
+	return (
+		<List>
+			{ media.map( ( { id, title, data } ) => <MediaItem image={ data } title={ title } key={ id } /> ) }
+		</List>
+	);
 }
 
 export default MediaList;

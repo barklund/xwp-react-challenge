@@ -1,10 +1,17 @@
-import React, {useState, useCallback} from 'react';
+/**
+ * External dependencies
+ */
+import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-import {useMedia} from '../media';
-import Button from './button'
-import InputGroup from './inputGroup'
-import Preview from './preview'
+/**
+ * Internal dependencies
+ */
+import { useMedia } from '../media';
+import Button from './button';
+import InputGroup from './inputGroup';
+import Preview from './preview';
 
 const Fieldset = styled.fieldset`
   color: purple;
@@ -23,44 +30,54 @@ const Buttons = styled.div`
   }
 `;
 
-function Upload({handleComplete}) {
-  const [title, setTitle] = useState('');
-  const [imageData, setImageData] = useState('');
-  const {actions:{addMedia}} = useMedia();
+function Upload( { handleComplete } ) {
+	const [ title, setTitle ] = useState( '' );
+	const [ imageData, setImageData ] = useState( '' );
+	const { actions: { addMedia } } = useMedia();
 
-  const handleImageChanged = useCallback(evt => {
-    const reader = new FileReader();
-    reader.onload = e => setImageData(e.target.result);
-    reader.readAsDataURL(evt.target.files[0]);
-  }, []);
+	const handleImageChanged = useCallback( ( evt ) => {
+		const reader = new window.FileReader();
+		reader.onload = ( e ) => setImageData( e.target.result );
+		reader.readAsDataURL( evt.target.files[ 0 ] );
+	}, [] );
 
-  const handleTitleChanged = useCallback(evt => setTitle(evt.target.value), []);
+	const handleTitleChanged = useCallback( ( evt ) => setTitle( evt.target.value ), [] );
 
-  const handleCancel = useCallback(evt => {
-    evt.preventDefault();
-    handleComplete();
-  }, [handleComplete]);
+	const handleCancel = useCallback( ( evt ) => {
+		evt.preventDefault();
+		handleComplete();
+	}, [ handleComplete ] );
 
-  const handleSubmit = useCallback(evt => {
-    evt.preventDefault();
-    addMedia({title, data:imageData})
-      .then(handleComplete);
-  }, [addMedia, title, imageData, handleComplete]);
+	const handleSubmit = useCallback( ( evt ) => {
+		evt.preventDefault();
+		addMedia( { title, data: imageData } )
+			.then( handleComplete );
+	}, [ addMedia, title, imageData, handleComplete ] );
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <Fieldset>
-        <Title>Upload new</Title>
-        <InputGroup label="Title" name="title" value={title} onChange={handleTitleChanged} />
-        <InputGroup label="Image" type="file" name="image" onChange={handleImageChanged} />
-        {imageData && <Preview data={imageData} />}
-        <Buttons>
-          <Button>Upload</Button>
-          <Button type="button" isOutline onClick={handleCancel}>Cancel</Button>
-        </Buttons>
-      </Fieldset>
-    </form>
-  );
+	return (
+		<form onSubmit={ handleSubmit }>
+			<Fieldset>
+				<Title>
+					{ 'Upload new' }
+				</Title>
+				<InputGroup label="Title" name="title" value={ title } onChange={ handleTitleChanged } />
+				<InputGroup label="Image" type="file" name="image" onChange={ handleImageChanged } />
+				{ imageData && <Preview data={ imageData } /> }
+				<Buttons>
+					<Button>
+						{ 'Upload' }
+					</Button>
+					<Button type="button" isOutline onClick={ handleCancel }>
+						{ 'Cancel' }
+					</Button>
+				</Buttons>
+			</Fieldset>
+		</form>
+	);
 }
+
+Upload.propTypes = {
+	handleComplete: PropTypes.func.isRequired,
+};
 
 export default Upload;

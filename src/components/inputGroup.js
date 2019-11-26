@@ -1,5 +1,9 @@
+/**
+ * External dependencies
+ */
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Input = styled.input`
   color: purple;
@@ -16,13 +20,19 @@ const Group = styled.label`
   margin: .5em 0;
 `;
 
-function InputGroup({label, ...rest}) {
-  return (
-    <Group>
-      <Label>{label}</Label>
-      <Input {...rest} />
-    </Group>
-  );
+function InputGroup( { label, ...rest } ) {
+	return (
+		<Group>
+			<Label>
+				{ label }
+			</Label>
+			<Input { ...rest } />
+		</Group>
+	);
 }
+
+InputGroup.propTypes = {
+	label: PropTypes.string.isRequired,
+};
 
 export default InputGroup;

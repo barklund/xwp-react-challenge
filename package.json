@@ -11,6 +11,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "lint": "eslint src/",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -29,5 +30,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@testing-library/react": "^9.3.2",
+    "@wordpress/eslint-plugin": "^3.2.0",
+    "eslint": "^6.7.1",
+    "eslint-plugin-eslint-comments": "^3.1.2",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-react": "^7.16.0"
   }
 }
