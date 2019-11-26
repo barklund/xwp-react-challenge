@@ -7,7 +7,7 @@ This is a media library with a dummy backend.
 Stack includes:
 
 * `create-react-app` as the base.
-* `miragejs` as dummy backend provider.
+* `miragejs` as dummy *"REST API"*.
 * `styled-components` as CSS-in-JS helper.
 * `jest` as test runner.
 * `react-testing-library` as test helper.
@@ -16,32 +16,39 @@ Stack includes:
 
 Spend no more than 6 hours on this. Tasks are listed in prioritized order.
 
-For all tasks:
+Please pay attention to the following advice regarding the conditions for a proper solution:
 
-* Implement solution in a branch as a PR against `master`.
-* Follow the style already used in the application.
-* Argue your solution in the PR description. Feel free to create inline comments in the PR where applicable.
-* Add and/or modify relevant tests.
-* Follow Engineering style guides and best practices.
-* Make sure your code lints.
+* Implement solution in a branch as a PR against `master` (one task per branch all based off of `master`, don't base them off of each other)
+* Do feature commits and use proper commit messages (they can have a body too!)
+* Argue your solution in the PR description. Feel free to create inline comments in the PR where applicable
+* Use proper semantic HTML and show proficiency in best-practice CSS
+* Add and/or modify relevant tests (TDD is appreciated, but not a requirement)
+* Follow the style already used in the application (file and variable naming, commenting, etc)
+* Follow engineering style guides and best practices (of course make sure your code lints!)
 
 ## Task list
 
-- [ ] Add validation to the "new media" form
+### Task 1: Input validation
 
-* _Hint 1_: Make sure a title is provided.
-* _Hint 2_: Make sure a valid image is provided.
+Add input validation to the "new media" form
 
-- [ ] Add a loading indicator to the media list and upload form
+* _Hint_: Make sure a **valid** image is provided (for a reasonable definition of _"valid"_).
+* _Extra credit_: Think about accessibility when displaying errors.
 
-* _Hint 1_: Add state to the API context and provider
-* _Hint 2_: Consider whether different API calls require separate loading indicators?
+### Task 2: Loading indicator
 
-- [ ] Add the ability to drag'n'drop an image onto the page to initiate upload (users still have to supply a title of course)
+Add a loading indicator to the media list and upload form
+
+* _Hint_: Add relevant state variables to the API context
+* _Extra credit_: Consider whether different API calls require separate loading states and how to best model this?
+
+### Task 3: Drag files from desktop
+
+Add the ability to drag'n'drop an image onto the page to initiate upload (users still have to supply a title of course)
 
 * _Hint 1_: Perhaps build a new top level service and include it in a proper location in `app.js`.
 * _Hint 2_: Check how the HTML Drag and Drop API works. Lots of examples out there.
-* _Extra credit_: Allow upload of multiple images (might require a slight rework of the API as well)
+* _Extra credit_: Allow drop of multiple images (might require a slight rework of the API as well)
 
 ## Available Scripts
 
@@ -59,4 +66,3 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
