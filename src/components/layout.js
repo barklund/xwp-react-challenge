@@ -16,6 +16,14 @@ const Wrapper = styled.main`
   margin: 2em auto;
   padding: 1em;
   background: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+`;
+
+const Title = styled.h1`
+  text-align: center;
+  margin: 0 0 1rem;
+  font-size: 4rem;
 `;
 
 const AppStyle = createGlobalStyle`
@@ -34,6 +42,7 @@ function Layout() {
 	return (
 		<Wrapper>
 			<AppStyle />
+			<Title>Media Library</Title>
 			{ hasUpload ?
 				<Upload handleComplete={ () => setHasUpload( false ) } /> :
 				<Button onClick={ () => setHasUpload( true ) }>

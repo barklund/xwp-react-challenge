@@ -8,12 +8,7 @@ import { Server } from 'miragejs';
  */
 import media from './db.media.fixture.json';
 
-// Reason: this is only for dummy REST server
-// eslint-disable-next-line no-new
-new Server( {
-	baseConfg() {
-		this.timing = 1000;
-	},
+const restServer = new Server( {
 	seeds( server ) {
 		server.db.loadData( { media } );
 	},
@@ -25,3 +20,5 @@ new Server( {
 		} );
 	},
 } );
+
+export default restServer;
