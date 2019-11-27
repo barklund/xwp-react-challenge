@@ -42,7 +42,9 @@ function Layout() {
 	return (
 		<Wrapper>
 			<AppStyle />
-			<Title>Media Library</Title>
+			<Title>
+				{ 'Media Library' }
+			</Title>
 			{ hasUpload ?
 				<Upload handleComplete={ () => setHasUpload( false ) } /> :
 				<Button onClick={ () => setHasUpload( true ) }>
