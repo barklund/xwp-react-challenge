@@ -16,6 +16,7 @@ function setup() {
 describe( 'APIProvider', () => {
 	beforeAll( () => {
 		server.logging = false;
+		server.timing = 0;
 	} );
 	beforeEach( () => {
 		server.db.emptyData();

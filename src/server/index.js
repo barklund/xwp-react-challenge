@@ -20,5 +20,6 @@ const restServer = new Server( {
 		} );
 	},
 } );
+restServer.timing = 1000;
 
 export default restServer;
