@@ -22,7 +22,7 @@ describe( 'APIProvider', () => {
 		server.db.emptyData();
 	} );
 
-	it( 'should get media', async () => {
+	it( 'should get media from server', async () => {
 		const api = setup();
 		const { actions: { getMedia } } = api.result.current;
 
@@ -35,7 +35,7 @@ describe( 'APIProvider', () => {
 		expect( result ).toStrictEqual( expected );
 	} );
 
-	it( 'should post media', async () => {
+	it( 'should post media to server', async () => {
 		const api = setup();
 		const { actions: { postMedia } } = api.result.current;
 
