@@ -9,7 +9,7 @@ import ReactDOM from 'react-dom';
  */
 import App from './app';
 
-// includes dummy API - can be conditionally require'd instead if desired
+// includes dummy API - can also be conditionally require()'d
 import './server';
 
 ReactDOM.render( <App />, document.getElementById( 'root' ) );

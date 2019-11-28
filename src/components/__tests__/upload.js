@@ -20,7 +20,7 @@ const DUMMY_MEDIA_CONTEXT = {
 
 const uploadButton = 'Upload';
 const cancelButton = 'Cancel';
-const previewImageAltText = 'sample';
+const previewImageAltText = 'Preview image';
 
 const imageBytes = 'firefighter-bytes-go-here';
 
@@ -48,14 +48,14 @@ describe( 'Upload', () => {
 		);
 
 		await act( async () => {
-			fireEvent.change( getByLabelText( /image/i ), { target: { files: [ getDummyFile() ] } } );
+			fireEvent.change( getByLabelText( /select file/i ), { target: { files: [ getDummyFile() ] } } );
 
-			await waitForElement( () => getByAltText( 'sample' ) );
+			await waitForElement( () => getByAltText( previewImageAltText ) );
 		} );
 
 		const dataURI = getDataURI();
 
-		expect( getByAltText( 'sample' ) ).toHaveProperty( 'src', dataURI );
+		expect( getByAltText( previewImageAltText ) ).toHaveProperty( 'src', dataURI );
 	} );
 
 	it( 'should submit by invoking api with input data and then invoke complete callback', async () => {
@@ -66,12 +66,10 @@ describe( 'Upload', () => {
 			{ wrapper: DummyMediaProvider },
 		);
 
-		expect( getByText( uploadButton ) ).toBeInTheDocument();
-
 		await act( async () => {
-			fireEvent.change( getByLabelText( /title/i ), { target: { value: 'Firefighter' } } );
+			fireEvent.change( getByLabelText( /image title/i ), { target: { value: 'Firefighter' } } );
 
-			fireEvent.change( getByLabelText( /image/i ), { target: { files: [ getDummyFile() ] } } );
+			fireEvent.change( getByLabelText( /select file/i ), { target: { files: [ getDummyFile() ] } } );
 
 			await waitForElement( () => getByAltText( previewImageAltText ) );
 

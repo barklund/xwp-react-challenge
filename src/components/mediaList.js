@@ -10,16 +10,6 @@ import styled from 'styled-components';
 import { useMedia } from '../media';
 import MediaItem from './mediaItem';
 
-const List = styled.ul`
-  list-style: none;
-  display: flex;
-  margin: 2em -1em 0 0;
-  padding: 0;
-  align-items: top;
-  flex-direction: row;
-  flex-wrap: wrap;
-`;
-
 function MediaList() {
 	const { state: { media } } = useMedia();
 	return (
@@ -30,3 +20,13 @@ function MediaList() {
 }
 
 export default MediaList;
+
+const List = styled.ul`
+  list-style: none;
+  display: flex;
+  margin: 3em -3em 0 0;
+  padding: 0;
+  align-items: top;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
