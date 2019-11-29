@@ -48,6 +48,7 @@ const HiddenInput = styled.input`
 	z-index: -1;
 `;
 
-const FakeInput = styled( Input ).attrs( { as: 'div' })`
+const FakeInput = styled( Input )
+	.attrs( { as: 'div' } )`
 	margin-left: 0.5rem;
 `;
