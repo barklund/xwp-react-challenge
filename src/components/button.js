@@ -24,10 +24,6 @@ const Button = styled.button.attrs( { type: 'submit' } )`
     color: #888;
     border: 1px solid;
   ` }
-
-  ${ ( { isFake } ) => isFake && `
-    pointer-events: none;
-  ` }
 `;
 
 export default Button;
