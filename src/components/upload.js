@@ -48,7 +48,7 @@ function Upload( { handleComplete } ) {
 				<FileInputGroup label="Select file" onFileChange={ handleImageChanged } />
 				{ imageData && <Preview data={ imageData } /> }
 				<Buttons>
-					<Button isNarrow isOutline type="button" onClick={ handleCancel }>
+					<Button isNarrow isSecondary isGray type="button" onClick={ handleCancel }>
 						{ 'Cancel' }
 					</Button>
 					<Button isNarrow>

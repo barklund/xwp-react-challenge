@@ -14,14 +14,15 @@ const Button = styled.button.attrs( { type: 'submit' } )`
   border-radius: .5rem;
   text-align: center;
   background-color: #1A73E8;
+	cursor: pointer;
 
   ${ ( { isNarrow } ) => isNarrow && `
     height: 1.5rem;
   ` }
 
-  ${ ( { isOutline } ) => isOutline && `
+  ${ ( { isSecondary, isGray } ) => isSecondary && `
     background-color: transparent;
-    color: #888;
+    color: ${ isGray ? '#888' : '#1A73E8' };
     border: 1px solid;
   ` }
 `;

@@ -21,7 +21,7 @@ function FileInputGroup( { label, onFileChange } ) {
 	return (
 		<InputGroup label={ label }>
 			<HiddenInput type="file" onChange={ handleChange } />
-			<FakeButton isNarrow>
+			<FakeButton isSecondary isNarrow>
 				{ 'Browse' }
 			</FakeButton>
 			<FakeInput>
@@ -55,7 +55,6 @@ const FakeInput = styled( Input )
 
 const FakeButton = styled( Button )
 	.attrs( { as: 'div' } )`
-	cursor: pointer;
 	line-height: 1.8;
 
 	${ HiddenInput }:focus + & {
